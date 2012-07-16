@@ -30,7 +30,7 @@ repo --name=mer-tools --baseurl=http://repo.pub.meego.com/Mer:/Tools/Mer_Core_ar
 
 
 ################################################################ Simple UX
-repo --name=mer-tools --baseurl=http://repo.pub.meego.com//home:/lbt:/Mer:/UX/Mer_Core_armv7hl/ --save
+repo --name=mer-not-ux --baseurl=http://repo.pub.meego.com//home:/lbt:/Mer:/UX/Mer_Core_armv7hl/ --save
 
 
 
@@ -97,8 +97,6 @@ sed -i 's/mmcblk0p2/mmcblk1p3/g' /etc/fstab
 
 # This causes problems with the bme in N900 images so removing for now.
 rm -f /lib/modules/*/kernel/drivers/power/bq27x00_battery.ko
-# Remove cursor from showing during startup BMC#14991
-echo "xopts=-nocursor" >> /etc/sysconfig/uxlaunch
 
 # Without this line the rpm don't get the architecture right.
 echo -n 'armv7hl-meego-linux' > /etc/rpm/platform
